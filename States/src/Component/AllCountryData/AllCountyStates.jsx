@@ -38,9 +38,9 @@ const AllCountyStates = () => {
             setStates([])
       }
      }
-     const fetchCities = async(country, state)=>{
+     const fetchCities = async(country, states)=>{
       try{
-          const allCities = await fetch(`https://crio-location-selector.onrender.com/country=${country}/state=${state}/cities`)
+          const allCities = await fetch(`https://crio-location-selector.onrender.com/country=${country}/state=${states}/cities`)
           if(!allCities.ok) throw new Error('Network response was not ok');
           const citiesResult = await allCities.json();
            setCities(citiesResult)
@@ -86,7 +86,7 @@ const AllCountyStates = () => {
         }
         </select>
         {' '}
-        <select onChange={handleStates}>
+        <select onChange={handleStates} disabled={!selectCountry}>
           <option>Select States</option>
           {
             states.map((state) =>(
@@ -95,7 +95,7 @@ const AllCountyStates = () => {
           }
         </select>
         {' '}
-        <select onChange={handleCities}>
+        <select onChange={handleCities} disabled={!selectStates}>
           <option>Select City</option>
           {
             cities.map((citi)=>(
