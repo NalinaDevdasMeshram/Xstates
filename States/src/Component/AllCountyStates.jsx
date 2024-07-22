@@ -97,7 +97,7 @@ const AllCountyStates = () => {
         </select>
         <br/>
         {selectCountry && selectStates && selectCities &&(
-          <p><span><h5>You Selected {selectCountry}</h5></span>{selectStates}, {selectCities}</p>
+          <div><p><span><h5>You Selected {selectCountry}</h5></span>{selectStates}, {selectCities}</p></div>
         )}
     </div>
   )
