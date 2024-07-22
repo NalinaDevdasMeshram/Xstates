@@ -1,4 +1,5 @@
-import AllCountyStates from "./Component/AllCountyStates"
+import AllCountyStates from "./Component/AllCountryData/AllCountyStates"
+
 
 
 function App() {
