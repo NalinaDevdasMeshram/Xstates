@@ -69,7 +69,7 @@ const AllCountyStates = () => {
     setSelectCities (e.target.value)
    }
   return (
-    <div>
+    <div style={{alignItems:'center'}}>
         <h1>Select Location</h1>
         <select onChange={handleCountries}>
           <option>Select Country</option>
@@ -97,7 +97,7 @@ const AllCountyStates = () => {
         </select>
         <br/>
         {selectCountry && selectStates && selectCities &&(
-          <div><p><span><h5>You Selected {selectCountry}</h5></span>{selectStates}, {selectCities}</p></div>
+          <div><p><h5>You Selected {selectCountry},{selectStates}, {selectCities}</h5></p></div>
         )}
     </div>
   )
