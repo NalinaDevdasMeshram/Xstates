@@ -79,6 +79,7 @@ const AllCountyStates = () => {
           ))
         }
         </select>
+        {' '}
         <select onChange={handleStates}>
           <option>Select States</option>
           {
@@ -87,6 +88,7 @@ const AllCountyStates = () => {
             ))
           }
         </select>
+        {' '}
         <select onChange={handleCities}>
           <option>Select City</option>
           {
@@ -96,8 +98,8 @@ const AllCountyStates = () => {
           }
         </select>
         <br/>
-        {selectCountry && selectStates && selectCities &&(
-          <p>You Selected {selectCountry},{selectStates}, {selectCities}</p>
+        {selectCities && selectStates && selectCountry &&(
+          <p>You Selected {selectCities}, {selectStates}, {selectCountry}</p>
         )}
     </div>
   )
