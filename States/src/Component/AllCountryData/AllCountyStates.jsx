@@ -15,33 +15,39 @@ const AllCountyStates = () => {
   const fetchAllCountry = async()=>{
     try{
       const allCountryResponse =  await fetch(`https://crio-location-selector.onrender.com/countries`)
+      if(!fetchAllCountry.ok) throw new Error('Network response was not ok');
        const resultcountry = await allCountryResponse.json();
        console.log("All country", resultcountry)
        setCountries(resultcountry)
     }
      catch(e){
       console.error('fetching allCountry error', e.message)
+      setCountries([])
      }
     }
      const fetchState =async(countryName)=>{
       try{
           const allState = await fetch(`https://crio-location-selector.onrender.com/country=${countryName}/states`)
+          if(!fetchState.ok) throw new Error('Network response was not ok');
           const stateResult = await allState.json();
           // console.log('state', stateResult)
            setStates(stateResult)
       }
       catch(e){
             console.error('fetching state error', e.message)
+            setStates([])
       }
      }
      const fetchCities = async(country, state)=>{
       try{
           const allCities = await fetch(`https://crio-location-selector.onrender.com/country=${country}/state=${state}/cities`)
+          if(fetchCities.ok) throw new Error('Network response was not ok');
           const citiesResult = await allCities.json();
            setCities(citiesResult)
       }
       catch(e){
         console.error('fetching cities error', e.message)
+        setCities([])
       }
      }
    const handleCountries =(e)=>{
