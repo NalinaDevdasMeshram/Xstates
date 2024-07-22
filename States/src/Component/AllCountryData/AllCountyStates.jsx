@@ -87,7 +87,7 @@ const AllCountyStates = () => {
         </select>
         {' '}
         <select onChange={handleStates} disabled={!selectCountry}>
-          <option>Select States</option>
+          <option>Select State</option>
           {
             states.map((state) =>(
               <option key={state}>{state}</option>
