@@ -75,7 +75,7 @@ const AllCountyStates = () => {
     setSelectCities (e.target.value)
    }
   return (
-    <div style={{alignItems:'center'}}>
+    <div style={{ textAlign:'center',  border:'1px solid red'}}>
         <h1>Select Location</h1>
         <select onChange={handleCountries}>
           <option>Select Country</option>
@@ -96,6 +96,7 @@ const AllCountyStates = () => {
         </select>
         {' '}
         <select onChange={handleCities} disabled={!selectStates}>
+          
           <option>Select City</option>
           {
             cities.map((citi)=>(
@@ -105,7 +106,12 @@ const AllCountyStates = () => {
         </select>
         <br/>
         {selectCities && selectStates && selectCountry &&(
-          <p><span> You Selected {selectCities}, {selectStates}, {selectCountry}</span></p>
+          <div>
+           <span> 
+            <h4 style={{display:'inline'}}>You selected</h4>
+            <h2 style={{display:'inline'}}> {selectCities}</h2>, {selectStates}, {selectCountry}
+            </span> 
+            </div>
         )}
     </div>
   )
