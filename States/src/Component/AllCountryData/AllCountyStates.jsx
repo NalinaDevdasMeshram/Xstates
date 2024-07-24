@@ -72,16 +72,15 @@ const AllCountyStates = () => {
     setCities([])
     if(state){
         fetchCities(selectCountry, state);
-    }
-
-   }
+      }
+  }
    const handleCities = (e)=>{
     setSelectCities (e.target.value)
    }
   return (
-    <div style={{ textAlign:'center',  border:'1px solid red'}}>
+    <div style={{textAlign:'center',  border:'1px solid red'}}>
         <h1>Select Location</h1>
-        <select onChange={handleCountries}>
+        <select value={selectCountry} onChange={handleCountries}>
           <option>Select Country</option>
         {
           countries.map((country)=>(
@@ -90,7 +89,7 @@ const AllCountyStates = () => {
         }
         </select>
         {' '}
-        <select onChange={handleStates} disabled={!selectCountry}>
+        <select value={selectStates} onChange={handleStates} disabled={!selectCountry}>
           <option>Select State</option>
           {
             states.map((state) =>(
@@ -99,7 +98,7 @@ const AllCountyStates = () => {
           }
         </select>
         {' '}
-        <select onChange={handleCities} disabled={!selectStates}>
+        <select  value = {selectCities} onChange={handleCities} disabled={!selectStates}>
           
           <option>Select City</option>
           {
