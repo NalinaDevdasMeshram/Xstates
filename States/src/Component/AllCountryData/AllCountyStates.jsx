@@ -12,6 +12,8 @@ const AllCountyStates = () => {
   useEffect(()=>{
     fetchAllCountry();
   },[])
+  
+  // fetching all country data
   const fetchAllCountry = async()=>{
     try{
       const allCountryResponse =  await fetch(`https://crio-location-selector.onrender.com/countries`)
@@ -25,9 +27,10 @@ const AllCountyStates = () => {
       setCountries([])
      }
     }
-     const fetchState =async(countryName)=>{
+    // fetching all state data
+     const fetchState =async(country)=>{
       try{
-          const allState = await fetch(`https://crio-location-selector.onrender.com/country=${countryName}/states`)
+          const allState = await fetch(`https://crio-location-selector.onrender.com/country=${country}/states`)
           // if(!allState.ok) throw new Error('Network response was not ok');
           const stateResult = await allState.json();
           // console.log('state', stateResult)
@@ -38,6 +41,7 @@ const AllCountyStates = () => {
             setStates([])
       }
      }
+     // fetching the all city data
      const fetchCities = async(country, states)=>{
       try{
           const allCities = await fetch(`https://crio-location-selector.onrender.com/country=${country}/state=${states}/cities`)
@@ -109,7 +113,7 @@ const AllCountyStates = () => {
           <div>
            <span> 
             <h4 style={{display:'inline'}}>You selected</h4>
-            <h2 style={{display:'inline'}}>{selectCities}</h2>, {selectStates}, {selectCountry}
+            <h2 style={{display:'inline'}}> {selectCities}</h2>, {selectStates}, {selectCountry}
             </span> 
             </div>
         )}
