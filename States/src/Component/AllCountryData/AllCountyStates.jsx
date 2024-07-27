@@ -33,7 +33,7 @@ const AllCountyStates = () => {
       const allState = await fetch(
         `https://crio-location-selector.onrender.com/country=${country}/states`
       );
-      // if(!allState.ok) throw new Error('Network response was not ok');
+
       const stateResult = await allState.json();
       // console.log('state', stateResult)
       setStates(stateResult);
@@ -48,7 +48,7 @@ const AllCountyStates = () => {
       const allCities = await fetch(
         `https://crio-location-selector.onrender.com/country=${country}/state=${states}/cities`
       );
-      // if(!allCities.ok) throw new Error('Network response was not ok');
+
       const citiesResult = await allCities.json();
       setCities(citiesResult);
     } catch (e) {
@@ -82,38 +82,46 @@ const AllCountyStates = () => {
   return (
     <div style={{ textAlign: "center" }}>
       <h1>Select Location</h1>
-      <select value={selectCountry} onChange={handleCountries}>
-        <option>Select Country</option>
-        {countries.map((country) => (
-          <option key={country} value={country}>
-            {country}
-          </option>
-        ))}
-      </select>{" "}
-      <select
-        value={selectStates}
-        onChange={handleStates}
-        disabled={!selectCountry}
-      >
-        <option>Select State</option>
-        {states.map((state) => (
-          <option key={state} value={state}>
-            {state}
-          </option>
-        ))}
-      </select>{" "}
-      <select
-        value={selectCities}
-        onChange={handleCities}
-        disabled={!selectStates}
-      >
-        <option>Select City</option>
-        {cities.map((city) => (
-          <option key={city} value={city}>
-            {city}
-          </option>
-        ))}
-      </select>
+      <div className={styles.box}>
+        <select
+          className={styles.inputBox}
+          value={selectCountry}
+          onChange={handleCountries}
+        >
+          <option>Select Country</option>
+          {countries.map((country) => (
+            <option key={country} value={country}>
+              {country}
+            </option>
+          ))}
+        </select>{" "}
+        <select
+          className={styles.inputBox}
+          value={selectStates}
+          onChange={handleStates}
+          disabled={!selectCountry}
+        >
+          <option>Select State</option>
+          {states.map((state) => (
+            <option key={state} value={state}>
+              {state}
+            </option>
+          ))}
+        </select>{" "}
+        <select
+          className={styles.inputBox}
+          value={selectCities}
+          onChange={handleCities}
+          disabled={!selectStates}
+        >
+          <option>Select City</option>
+          {cities.map((city) => (
+            <option key={city} value={city}>
+              {city}
+            </option>
+          ))}
+        </select>
+      </div>
       {selectCities && selectStates && selectCountry && (
         <div>
           <span>
